@@ -168,6 +168,15 @@ function ChickenModel({ scrollY }: { scrollY: number }) {
   );
 }
 
+function Shadow() {
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.7, 0.1]} receiveShadow>
+      <ellipseGeometry args={[0.7, 0.4, 32]} />
+      <meshBasicMaterial color="#000000" transparent opacity={0.18} />
+    </mesh>
+  );
+}
+
 function Scene({ scrollY }: { scrollY: number }) {
   return (
     <>
@@ -177,6 +186,7 @@ function Scene({ scrollY }: { scrollY: number }) {
       <pointLight position={[0, 3, 3]} intensity={0.3} color="#fff5e0" />
       <hemisphereLight args={["#87ceeb", "#8b6914", 0.3]} />
       <ChickenModel scrollY={scrollY} />
+      <Shadow />
       <OrbitControls enableZoom={false} enablePan={false} />
     </>
   );
@@ -192,7 +202,7 @@ const ScrollChicken = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 pointer-events-auto" style={{ width: 160, height: 160 }}>
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 pointer-events-auto" style={{ width: 260, height: 260 }}>
       <Canvas camera={{ position: [0, 0, 4.5], fov: 40 }}>
         <Scene scrollY={scrollY} />
       </Canvas>
