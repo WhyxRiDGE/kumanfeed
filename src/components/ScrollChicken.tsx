@@ -171,9 +171,11 @@ function ChickenModel({ scrollY }: { scrollY: number }) {
 function Scene({ scrollY }: { scrollY: number }) {
   return (
     <>
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[3, 5, 5]} intensity={1} />
-      <directionalLight position={[-3, 2, -2]} intensity={0.3} />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[3, 5, 5]} intensity={1.2} castShadow />
+      <directionalLight position={[-3, 2, -2]} intensity={0.4} color="#b0c4de" />
+      <pointLight position={[0, 3, 3]} intensity={0.3} color="#fff5e0" />
+      <hemisphereLight args={["#87ceeb", "#8b6914", 0.3]} />
       <ChickenModel scrollY={scrollY} />
       <OrbitControls enableZoom={false} enablePan={false} />
     </>
