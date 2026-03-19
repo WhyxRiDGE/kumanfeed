@@ -48,7 +48,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-display font-semibold text-foreground">Location</h4>
-                <p className="font-body text-muted-foreground">Industrial Zone, Feed Mill Road<br />Agri City, State 54321</p>
+                <p className="font-body text-muted-foreground">PLOT NO. F-3, KHATA NO.- 37<br />INDUSTRIAL AREA, JASIDIH, DEOGHAR<br />Jharkhand, India - 814142</p>
               </div>
             </div>
           </div>
