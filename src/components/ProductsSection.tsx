@@ -1,18 +1,30 @@
-import { Bird, Egg } from "lucide-react";
+import { Bird, Egg, Drumstick, Wheat } from "lucide-react";
 import feedBag from "@/assets/feed-bag.jpg";
 
 const products = [
   {
-    title: "Counter Feed",
-    description: "Balanced nutrition feed designed for optimal growth and health maintenance in poultry. Ideal for everyday feeding routines.",
+    title: "Boiler Feed",
+    description: "High-energy formula for rapid, healthy weight gain in broiler chickens. Delivers superior meat quality and FCR.",
     icon: Bird,
-    specs: ["20% Crude Protein", "3,000 kcal/kg Energy", "Vitamin Enriched"],
+    specs: ["22% Crude Protein", "3,100 kcal/kg Energy", "Amino Acid Balanced"],
   },
   {
-    title: "Kouriler Feed",
-    description: "Premium high-protein formula engineered for rapid, healthy weight gain and superior meat quality in broiler chickens.",
+    title: "Sonali Feed",
+    description: "Specially crafted nutrition for Sonali breed poultry. Optimized for dual-purpose growth and egg production.",
     icon: Egg,
-    specs: ["22% Crude Protein", "3,100 kcal/kg Energy", "Amino Acid Balanced"],
+    specs: ["19% Crude Protein", "Dual Purpose Formula", "Mineral Enriched"],
+  },
+  {
+    title: "Layer Feed",
+    description: "Calcium-enriched feed optimized for consistent egg production and strong shell quality in laying hens.",
+    icon: Wheat,
+    specs: ["17% Crude Protein", "3.8% Calcium", "Added Vitamins A, D, E"],
+  },
+  {
+    title: "Jeo Finisher",
+    description: "Premium finisher feed for the final growth phase. Maximizes weight gain and prepares birds for market readiness.",
+    icon: Drumstick,
+    specs: ["20% Crude Protein", "High Energy Finish", "Growth Optimized"],
   },
 ];
 
@@ -29,7 +41,7 @@ const ProductsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((p) => (
             <div key={p.title} className="group bg-card rounded-lg border border-border p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
               <div className="w-full h-48 rounded-md overflow-hidden mb-5 bg-muted">
