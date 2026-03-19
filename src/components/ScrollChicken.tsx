@@ -170,8 +170,8 @@ function ChickenModel({ scrollY }: { scrollY: number }) {
 
 function Shadow() {
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.7, 0.1]} receiveShadow>
-      <ellipseGeometry args={[0.7, 0.4, 32]} />
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.7, 0.1]}>
+      <circleGeometry args={[0.6, 32]} />
       <meshBasicMaterial color="#000000" transparent opacity={0.18} />
     </mesh>
   );
