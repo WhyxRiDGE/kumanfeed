@@ -3,117 +3,167 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
-/* ── Cartoon Chicken built from primitives ── */
+/* ── Realistic Chicken built from primitives ── */
 function ChickenModel({ scrollY }: { scrollY: number }) {
   const groupRef = useRef<THREE.Group>(null);
 
   useFrame(() => {
     if (groupRef.current) {
       groupRef.current.rotation.y = scrollY * 0.03;
-      // Gentle bob
-      groupRef.current.position.y = Math.sin(scrollY * 0.05) * 0.15;
+      groupRef.current.position.y = Math.sin(scrollY * 0.05) * 0.1;
     }
   });
 
-  const white = new THREE.MeshToonMaterial({ color: "#f5f0e8" });
-  const skin = new THREE.MeshToonMaterial({ color: "#f0c070" });
-  const red = new THREE.MeshToonMaterial({ color: "#e23030" });
-  const orange = new THREE.MeshToonMaterial({ color: "#e8952a" });
-  const darkBrown = new THREE.MeshToonMaterial({ color: "#1a1a1a" });
-  const eyeWhite = new THREE.MeshToonMaterial({ color: "#ffffff" });
+  const bodyMat = new THREE.MeshStandardMaterial({ color: "#d4a04a", roughness: 0.7, metalness: 0.05 });
+  const breastMat = new THREE.MeshStandardMaterial({ color: "#e8c06a", roughness: 0.75, metalness: 0.02 });
+  const headMat = new THREE.MeshStandardMaterial({ color: "#c8922e", roughness: 0.65, metalness: 0.05 });
+  const combMat = new THREE.MeshStandardMaterial({ color: "#cc2020", roughness: 0.5, metalness: 0.1 });
+  const wattleMat = new THREE.MeshStandardMaterial({ color: "#b81818", roughness: 0.5, metalness: 0.1 });
+  const beakMat = new THREE.MeshStandardMaterial({ color: "#e8a020", roughness: 0.4, metalness: 0.15 });
+  const legMat = new THREE.MeshStandardMaterial({ color: "#d4932a", roughness: 0.5, metalness: 0.1 });
+  const eyeWhiteMat = new THREE.MeshStandardMaterial({ color: "#f8f4f0", roughness: 0.3 });
+  const pupilMat = new THREE.MeshStandardMaterial({ color: "#0a0a0a", roughness: 0.2, metalness: 0.3 });
+  const wingMat = new THREE.MeshStandardMaterial({ color: "#b8842a", roughness: 0.7, metalness: 0.05 });
+  const tailMat = new THREE.MeshStandardMaterial({ color: "#2a2a2a", roughness: 0.6, metalness: 0.1 });
+  const tailAccent = new THREE.MeshStandardMaterial({ color: "#1a3a1a", roughness: 0.5, metalness: 0.15 });
 
   return (
-    <group ref={groupRef} scale={1.2}>
-      {/* Body */}
-      <mesh position={[0, -0.3, 0]} material={white}>
-        <sphereGeometry args={[1, 32, 32]} />
+    <group ref={groupRef} scale={1.15}>
+      {/* Main body - elongated */}
+      <mesh position={[0, -0.25, 0]} material={bodyMat}>
+        <sphereGeometry args={[0.85, 32, 32]} />
       </mesh>
-      {/* Body bottom (slightly bigger for pear shape) */}
-      <mesh position={[0, -0.7, 0]} material={white}>
-        <sphereGeometry args={[0.9, 32, 32]} />
+      {/* Lower body / belly */}
+      <mesh position={[0, -0.65, 0.1]} material={breastMat} scale={[1, 0.8, 1.05]}>
+        <sphereGeometry args={[0.75, 32, 32]} />
+      </mesh>
+      {/* Chest puff */}
+      <mesh position={[0, -0.1, 0.45]} material={breastMat} scale={[0.7, 0.7, 0.5]}>
+        <sphereGeometry args={[0.6, 24, 24]} />
+      </mesh>
+      {/* Back hump */}
+      <mesh position={[0, 0.05, -0.3]} material={bodyMat} scale={[0.8, 0.6, 0.9]}>
+        <sphereGeometry args={[0.65, 24, 24]} />
+      </mesh>
+
+      {/* Neck */}
+      <mesh position={[0, 0.45, 0.2]} material={headMat} scale={[0.5, 0.7, 0.5]}>
+        <sphereGeometry args={[0.45, 24, 24]} />
       </mesh>
 
       {/* Head */}
-      <mesh position={[0, 0.85, 0.15]} material={white}>
-        <sphereGeometry args={[0.55, 32, 32]} />
+      <mesh position={[0, 0.85, 0.25]} material={headMat}>
+        <sphereGeometry args={[0.4, 32, 32]} />
+      </mesh>
+      {/* Cheeks */}
+      <mesh position={[-0.15, 0.78, 0.5]} material={headMat} scale={[0.6, 0.5, 0.4]}>
+        <sphereGeometry args={[0.25, 16, 16]} />
+      </mesh>
+      <mesh position={[0.15, 0.78, 0.5]} material={headMat} scale={[0.6, 0.5, 0.4]}>
+        <sphereGeometry args={[0.25, 16, 16]} />
       </mesh>
 
-      {/* Comb (three bumps on top) */}
-      <mesh position={[-0.1, 1.45, 0.15]} material={red}>
-        <sphereGeometry args={[0.13, 16, 16]} />
+      {/* Comb - serrated, more detailed */}
+      <mesh position={[0, 1.22, 0.2]} material={combMat} scale={[0.15, 1, 0.6]}>
+        <sphereGeometry args={[0.18, 16, 16]} />
       </mesh>
-      <mesh position={[0.05, 1.52, 0.15]} material={red}>
+      <mesh position={[0, 1.32, 0.15]} material={combMat} scale={[0.12, 0.8, 0.5]}>
         <sphereGeometry args={[0.15, 16, 16]} />
       </mesh>
-      <mesh position={[0.2, 1.45, 0.15]} material={red}>
-        <sphereGeometry args={[0.13, 16, 16]} />
+      <mesh position={[0, 1.18, 0.3]} material={combMat} scale={[0.12, 0.6, 0.5]}>
+        <sphereGeometry args={[0.14, 16, 16]} />
+      </mesh>
+      <mesh position={[0, 1.28, 0.28]} material={combMat} scale={[0.1, 0.5, 0.4]}>
+        <sphereGeometry args={[0.12, 16, 16]} />
       </mesh>
 
-      {/* Wattle (red thing under beak) */}
-      <mesh position={[0, 0.45, 0.55]} material={red}>
+      {/* Wattle */}
+      <mesh position={[0, 0.5, 0.6]} material={wattleMat} scale={[0.6, 1, 0.5]}>
         <sphereGeometry args={[0.1, 16, 16]} />
       </mesh>
+      <mesh position={[0, 0.42, 0.58]} material={wattleMat} scale={[0.5, 0.8, 0.4]}>
+        <sphereGeometry args={[0.08, 16, 16]} />
+      </mesh>
 
-      {/* Beak */}
-      <mesh position={[0, 0.7, 0.65]} rotation={[0.3, 0, 0]} material={orange}>
-        <coneGeometry args={[0.12, 0.3, 8]} />
+      {/* Beak - upper */}
+      <mesh position={[0, 0.72, 0.65]} rotation={[0.4, 0, 0]} material={beakMat}>
+        <coneGeometry args={[0.08, 0.25, 8]} />
+      </mesh>
+      {/* Beak - lower */}
+      <mesh position={[0, 0.65, 0.62]} rotation={[0.6, 0, 0]} material={beakMat} scale={[0.8, 0.5, 0.8]}>
+        <coneGeometry args={[0.06, 0.18, 8]} />
       </mesh>
 
       {/* Eyes */}
-      {/* Left eye white */}
-      <mesh position={[-0.2, 0.95, 0.55]} material={eyeWhite}>
-        <sphereGeometry args={[0.13, 16, 16]} />
+      <mesh position={[-0.18, 0.92, 0.52]} material={eyeWhiteMat}>
+        <sphereGeometry args={[0.09, 16, 16]} />
       </mesh>
-      {/* Left pupil */}
-      <mesh position={[-0.2, 0.95, 0.67]} material={darkBrown}>
-        <sphereGeometry args={[0.07, 16, 16]} />
+      <mesh position={[-0.18, 0.92, 0.6]} material={pupilMat}>
+        <sphereGeometry args={[0.05, 16, 16]} />
       </mesh>
-      {/* Right eye white */}
-      <mesh position={[0.2, 0.95, 0.55]} material={eyeWhite}>
-        <sphereGeometry args={[0.13, 16, 16]} />
+      {/* Eye highlight */}
+      <mesh position={[-0.16, 0.94, 0.62]} material={eyeWhiteMat}>
+        <sphereGeometry args={[0.015, 8, 8]} />
       </mesh>
-      {/* Right pupil */}
-      <mesh position={[0.2, 0.95, 0.67]} material={darkBrown}>
-        <sphereGeometry args={[0.07, 16, 16]} />
+      <mesh position={[0.18, 0.92, 0.52]} material={eyeWhiteMat}>
+        <sphereGeometry args={[0.09, 16, 16]} />
       </mesh>
-
-      {/* Left Wing */}
-      <mesh position={[-0.85, -0.15, 0]} rotation={[0, 0, 0.4]} material={white}>
-        <sphereGeometry args={[0.45, 16, 16]} />
+      <mesh position={[0.18, 0.92, 0.6]} material={pupilMat}>
+        <sphereGeometry args={[0.05, 16, 16]} />
       </mesh>
-      {/* Right Wing */}
-      <mesh position={[0.85, -0.15, 0]} rotation={[0, 0, -0.4]} material={white}>
-        <sphereGeometry args={[0.45, 16, 16]} />
+      <mesh position={[0.2, 0.94, 0.62]} material={eyeWhiteMat}>
+        <sphereGeometry args={[0.015, 8, 8]} />
       </mesh>
 
-      {/* Tail feathers */}
-      <mesh position={[0, 0.1, -0.9]} rotation={[-0.6, 0, 0]} material={white}>
+      {/* Wings - layered feathers */}
+      <mesh position={[-0.8, -0.1, -0.05]} rotation={[0, 0, 0.35]} material={wingMat} scale={[0.4, 0.9, 0.7]}>
+        <sphereGeometry args={[0.5, 16, 16]} />
+      </mesh>
+      <mesh position={[-0.85, -0.3, -0.15]} rotation={[0, 0, 0.5]} material={wingMat} scale={[0.3, 0.7, 0.55]}>
+        <sphereGeometry args={[0.45, 16, 16]} />
+      </mesh>
+      <mesh position={[0.8, -0.1, -0.05]} rotation={[0, 0, -0.35]} material={wingMat} scale={[0.4, 0.9, 0.7]}>
+        <sphereGeometry args={[0.5, 16, 16]} />
+      </mesh>
+      <mesh position={[0.85, -0.3, -0.15]} rotation={[0, 0, -0.5]} material={wingMat} scale={[0.3, 0.7, 0.55]}>
+        <sphereGeometry args={[0.45, 16, 16]} />
+      </mesh>
+
+      {/* Tail feathers - dramatic upward sweep */}
+      <mesh position={[0, 0.2, -0.95]} rotation={[-0.8, 0, 0]} material={tailMat} scale={[0.5, 1.2, 0.4]}>
         <sphereGeometry args={[0.35, 16, 16]} />
       </mesh>
-      <mesh position={[0.15, 0.3, -1.0]} rotation={[-0.4, 0.2, 0]} material={white}>
-        <sphereGeometry args={[0.25, 16, 16]} />
+      <mesh position={[0.12, 0.45, -1.05]} rotation={[-0.5, 0.15, 0]} material={tailAccent} scale={[0.25, 1, 0.3]}>
+        <sphereGeometry args={[0.3, 16, 16]} />
       </mesh>
-      <mesh position={[-0.15, 0.3, -1.0]} rotation={[-0.4, -0.2, 0]} material={white}>
-        <sphereGeometry args={[0.25, 16, 16]} />
+      <mesh position={[-0.12, 0.45, -1.05]} rotation={[-0.5, -0.15, 0]} material={tailAccent} scale={[0.25, 1, 0.3]}>
+        <sphereGeometry args={[0.3, 16, 16]} />
       </mesh>
-
-      {/* Left Leg */}
-      <mesh position={[-0.3, -1.4, 0.1]} material={orange}>
-        <cylinderGeometry args={[0.06, 0.06, 0.5, 8]} />
-      </mesh>
-      {/* Left Foot */}
-      <mesh position={[-0.3, -1.65, 0.2]} rotation={[1.2, 0, 0]} material={orange}>
-        <cylinderGeometry args={[0.04, 0.04, 0.3, 8]} />
+      <mesh position={[0, 0.55, -1.0]} rotation={[-0.4, 0, 0]} material={tailMat} scale={[0.2, 0.9, 0.25]}>
+        <sphereGeometry args={[0.28, 16, 16]} />
       </mesh>
 
-      {/* Right Leg */}
-      <mesh position={[0.3, -1.4, 0.1]} material={orange}>
-        <cylinderGeometry args={[0.06, 0.06, 0.5, 8]} />
+      {/* Legs */}
+      <mesh position={[-0.25, -1.25, 0.1]} material={legMat}>
+        <cylinderGeometry args={[0.05, 0.04, 0.55, 8]} />
       </mesh>
-      {/* Right Foot */}
-      <mesh position={[0.3, -1.65, 0.2]} rotation={[1.2, 0, 0]} material={orange}>
-        <cylinderGeometry args={[0.04, 0.04, 0.3, 8]} />
+      <mesh position={[0.25, -1.25, 0.1]} material={legMat}>
+        <cylinderGeometry args={[0.05, 0.04, 0.55, 8]} />
       </mesh>
+      {/* Feet - 3 toes each */}
+      {[-0.25, 0.25].map((x, i) => (
+        <group key={i} position={[x, -1.52, 0.15]}>
+          <mesh rotation={[1.3, 0, 0]} material={legMat}>
+            <cylinderGeometry args={[0.025, 0.02, 0.22, 6]} />
+          </mesh>
+          <mesh rotation={[1.3, 0, 0.4]} material={legMat}>
+            <cylinderGeometry args={[0.025, 0.02, 0.2, 6]} />
+          </mesh>
+          <mesh rotation={[1.3, 0, -0.4]} material={legMat}>
+            <cylinderGeometry args={[0.025, 0.02, 0.2, 6]} />
+          </mesh>
+        </group>
+      ))}
     </group>
   );
 }
