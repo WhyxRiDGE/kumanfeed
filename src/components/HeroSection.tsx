@@ -13,7 +13,7 @@ const HeroSection = () => {
             Premium Poultry Feeds for Healthier Flocks
           </h1>
           <p className="mt-5 text-lg md:text-xl text-primary-foreground/90 font-body leading-relaxed">
-            Scientifically formulated, quality-tested nutrition for broilers, layers, and chicks. Trusted by farmers across the region.
+            Kumar Feeds & Biotech Pvt. Ltd. — Scientifically formulated, quality-tested nutrition for broilers, layers, and chicks. Trusted by farmers across the region.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#products" className="inline-flex items-center px-7 py-3.5 rounded-md bg-secondary text-secondary-foreground font-display font-bold text-base hover:brightness-110 transition-all duration-200">

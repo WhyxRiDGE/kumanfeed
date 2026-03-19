@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur border-b border-border">
       <div className="container flex items-center justify-between h-16">
         <a href="#home" className="font-display font-bold text-xl text-primary tracking-tight">
-          🌾 GreenHarvest Feeds
+          🌾 Kumar Feeds & Biotech
         </a>
 
         {/* Desktop */}
