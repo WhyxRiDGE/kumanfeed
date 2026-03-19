@@ -1,24 +1,18 @@
-import { Egg, Bird, Sprout } from "lucide-react";
+import { Bird, Egg } from "lucide-react";
 import feedBag from "@/assets/feed-bag.jpg";
 
 const products = [
   {
-    title: "Broiler Feed",
-    description: "High-protein formula for rapid, healthy weight gain in broiler chickens. Available in starter, grower, and finisher variants.",
+    title: "Counter Feed",
+    description: "Balanced nutrition feed designed for optimal growth and health maintenance in poultry. Ideal for everyday feeding routines.",
     icon: Bird,
-    specs: ["22% Crude Protein", "3,100 kcal/kg Energy", "Amino Acid Balanced"],
+    specs: ["20% Crude Protein", "3,000 kcal/kg Energy", "Vitamin Enriched"],
   },
   {
-    title: "Layer Feed",
-    description: "Calcium-enriched feed optimized for consistent egg production and strong shell quality in laying hens.",
+    title: "Kouriler Feed",
+    description: "Premium high-protein formula engineered for rapid, healthy weight gain and superior meat quality in broiler chickens.",
     icon: Egg,
-    specs: ["17% Crude Protein", "3.8% Calcium", "Added Vitamins A, D, E"],
-  },
-  {
-    title: "Chick Starter",
-    description: "Finely milled, nutrient-dense starter feed for chicks from day 1 to 8 weeks. Supports strong early development.",
-    icon: Sprout,
-    specs: ["20% Crude Protein", "Easy Digest Formula", "Immune Boosters"],
+    specs: ["22% Crude Protein", "3,100 kcal/kg Energy", "Amino Acid Balanced"],
   },
 ];
 
@@ -35,7 +29,7 @@ const ProductsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {products.map((p) => (
             <div key={p.title} className="group bg-card rounded-lg border border-border p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
               <div className="w-full h-48 rounded-md overflow-hidden mb-5 bg-muted">
