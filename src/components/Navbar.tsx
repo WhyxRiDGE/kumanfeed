@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import kfLogo from "@/assets/kf-logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -14,8 +15,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur border-b border-border">
       <div className="container flex items-center justify-between h-16">
-        <a href="#home" className="font-display font-bold text-xl text-primary tracking-tight">
-          🌾 Kumar Feeds & Biotech
+        <a href="#home" className="flex items-center gap-2 font-display font-bold text-xl text-primary tracking-tight">
+          <img src={kfLogo} alt="Kumar Feeds Logo" className="h-10 w-10 object-contain" />
+          Kumar Feeds & Biotech
         </a>
 
         {/* Desktop */}
