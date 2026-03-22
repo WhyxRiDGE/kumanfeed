@@ -20,7 +20,7 @@ const TrustSection = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
           {features.map((f) => (
             <div key={f.title} className="bg-card rounded-lg border border-border p-6 text-center hover:shadow-md transition-shadow duration-200">
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
