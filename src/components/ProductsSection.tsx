@@ -26,10 +26,11 @@ const products = [
     specs: ["17% Crude Protein", "3.8% Calcium", "Added Vitamins A, D, E"],
   },
   {
-    title: "Jeo Finisher",
-    description: "Premium finisher feed for the final growth phase. Maximizes weight gain and prepares birds for market readiness.",
+    title: "Counter Feed",
+    description: "Balanced nutrition for counter breed poultry. Supports steady growth and overall flock health.",
     icon: Drumstick,
-    specs: ["20% Crude Protein", "High Energy Finish", "Growth Optimized"],
+    image: counterFeedImg,
+    specs: ["20% Crude Protein", "Balanced Formula", "Growth Optimized"],
   },
 ];
 
