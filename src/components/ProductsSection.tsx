@@ -7,6 +7,7 @@ const products = [
     title: "Boiler Feed",
     description: "High-energy formula for rapid, healthy weight gain in broiler chickens. Delivers superior meat quality and FCR.",
     icon: Bird,
+    image: boilerFeedImg,
     specs: ["22% Crude Protein", "3,100 kcal/kg Energy", "Amino Acid Balanced"],
   },
   {
