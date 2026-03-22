@@ -1,7 +1,8 @@
-import { FlaskConical, Award, Truck } from "lucide-react";
+import { FlaskConical, Award, Truck, ShieldCheck } from "lucide-react";
 
 const features = [
   { icon: FlaskConical, title: "Lab-Tested Nutrition", desc: "Every batch is tested for protein, moisture, and nutrient composition." },
+  { icon: ShieldCheck, title: "ISO 9001 Certified", desc: "Our manufacturing processes meet international ISO 9001 quality management standards." },
   { icon: Award, title: "Trusted Quality", desc: "Years of serving poultry farmers with reliable, high-performance feed products." },
   { icon: Truck, title: "Bulk Delivery", desc: "Flexible delivery options for orders of any size, anywhere in the region." },
 ];
