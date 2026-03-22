@@ -3,6 +3,7 @@ import feedBag from "@/assets/feed-bag.jpg";
 import boilerFeedImg from "@/assets/boiler-feed.png";
 import kouilerFeedImg from "@/assets/kouiler-feed.png";
 import counterFeedImg from "@/assets/counter-feed.png";
+import henGrowFeedImg from "@/assets/hen-grow-feed.png";
 
 const products = [
   {
@@ -20,10 +21,11 @@ const products = [
     specs: ["19% Crude Protein", "Breed-Specific Formula", "Mineral Enriched"],
   },
   {
-    title: "Layer Feed",
-    description: "Calcium-enriched feed optimized for consistent egg production and strong shell quality in laying hens.",
+    title: "Hen Grow Feed",
+    description: "Specially formulated broiler finisher feed for optimal weight gain and market-ready birds.",
     icon: Wheat,
-    specs: ["17% Crude Protein", "3.8% Calcium", "Added Vitamins A, D, E"],
+    image: henGrowFeedImg,
+    specs: ["17% Crude Protein", "Broiler Finisher", "Added Vitamins A, D, E"],
   },
   {
     title: "Counter Feed",
