@@ -47,7 +47,7 @@ const ProductsSection = () => {
           {products.map((p) => (
             <div key={p.title} className="group bg-card rounded-lg border border-border p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
               <div className="w-full h-48 rounded-md overflow-hidden mb-5 bg-muted">
-                <img src={feedBag} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <img src={p.image || feedBag} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center">
