@@ -1,5 +1,6 @@
 import { Bird, Egg, Drumstick, Wheat } from "lucide-react";
 import feedBag from "@/assets/feed-bag.jpg";
+import boilerFeedImg from "@/assets/boiler-feed.png";
 
 const products = [
   {
