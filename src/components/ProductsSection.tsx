@@ -1,6 +1,7 @@
 import { Bird, Egg, Drumstick, Wheat } from "lucide-react";
 import feedBag from "@/assets/feed-bag.jpg";
 import boilerFeedImg from "@/assets/boiler-feed.png";
+import kouilerFeedImg from "@/assets/kouiler-feed.png";
 
 const products = [
   {
@@ -11,10 +12,11 @@ const products = [
     specs: ["22% Crude Protein", "3,100 kcal/kg Energy", "Amino Acid Balanced"],
   },
   {
-    title: "Sonali Feed",
-    description: "Specially crafted nutrition for Sonali breed poultry. Optimized for dual-purpose growth and egg production.",
+    title: "Kouiler Feed",
+    description: "Premium nutrition for Kouiler breed poultry. Formulated for optimal growth, health, and performance.",
     icon: Egg,
-    specs: ["19% Crude Protein", "Dual Purpose Formula", "Mineral Enriched"],
+    image: kouilerFeedImg,
+    specs: ["19% Crude Protein", "Breed-Specific Formula", "Mineral Enriched"],
   },
   {
     title: "Layer Feed",
