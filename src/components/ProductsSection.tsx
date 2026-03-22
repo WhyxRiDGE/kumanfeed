@@ -3,6 +3,7 @@ import feedBag from "@/assets/feed-bag.jpg";
 import boilerFeedImg from "@/assets/boiler-feed.png";
 import kouilerFeedImg from "@/assets/kouiler-feed.png";
 import counterFeedImg from "@/assets/counter-feed.png";
+import henGrowFeedImg from "@/assets/hen-grow-feed.png";
 
 const products = [
   {
